@@ -42,13 +42,13 @@ class TeamsController < ApplicationController
   def update
     #puts team_params
     #TODO ok this sucks
-    #members_attributes = params[:team][:members_attributes]
-    #members_attributes.each do |key, value|
-    #  if value['_destroy'] == '1'
-    #    to_delete = value['id']
-    #    @team.members.delete(to_delete)
-    #  end
-    #end
+    members_attributes = params[:team][:members_attributes]
+    members_attributes.each do |key, value|
+      if value['_destroy'] == '1'
+        to_delete = value['id']
+        @team.members.delete(to_delete)
+      end
+    end
 
     if @team.update(team_params)
       redirect_to @team, notice: 'Team was successfully updated.'
