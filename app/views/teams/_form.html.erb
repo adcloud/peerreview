@@ -32,8 +32,8 @@
     <div class="field">
 
       <%= builder.label :new_member %>
-      <!-- TODO filter our existing team members-->
-      <%= builder.select :id, Member.all.collect {|m| [ m.email + ' - '+ m.role.name, m.id ] }, :include_blank => true %>
+      <% others = Member.all - @team.members  %>
+      <%= builder.select :id, others.collect {|m| [ m.email + ' - ' + m.role.name, m.id ] }, :include_blank => true %>
 
     </div>
   <% end -%>
