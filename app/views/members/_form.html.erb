@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.select :role_id, options_from_collection_for_select(Role.all, :id, :name, @member.role ? @member.role.id : "" ) %>
+    <%= f.select :role_id, Role.all.collect {|p| [ p.name, p.id ] } %>
   </div>
   <div class="actions">
     <%= f.submit %>
