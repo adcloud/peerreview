@@ -39,6 +39,13 @@ class TeamsController < ApplicationController
 
   # PATCH/PUT /teams/1
   def update
+    
+    new_member_id = params[:team][:member][:id]
+    if new_member_id != ''
+      m = Member.find(new_member_id)
+      @team.members << m
+    end
+
     if @team.update(team_params)
       redirect_to @team, notice: 'Team was successfully updated.'
     else
