@@ -62,7 +62,8 @@ class TeamsController < ApplicationController
     end
 
     if @team.update(team_params)
-      redirect_to @team, notice: 'Team was successfully updated.'
+      flash[:notice] = 'Team was successfully updated.'
+      render action: 'edit'
     else
       render action: 'edit'
     end
