@@ -1,6 +1,5 @@
 class Role < ActiveRecord::Base
-	attr_accessible :name
-
+	# TODO this sucks
 	def to_s
 		name
 	end

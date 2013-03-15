@@ -38,18 +38,7 @@ class TeamsController < ApplicationController
   end
 
   # PATCH/PUT /teams/1
-  # PATCH/PUT /teams/1.json
   def update
-    #puts team_params
-    #TODO ok this sucks
-    members_attributes = params[:team][:members_attributes]
-    members_attributes.each do |key, value|
-      if value['_destroy'] == '1'
-        to_delete = value['id']
-        @team.members.delete(to_delete)
-      end
-    end
-
     if @team.update(team_params)
       redirect_to @team, notice: 'Team was successfully updated.'
     else
@@ -75,6 +64,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :members_attributes, :members)
+      params.require(:team).permit(:name, members_attributes: [:email, :role, :_destroy, :id])
     end
 end
