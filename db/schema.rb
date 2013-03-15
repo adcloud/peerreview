@@ -11,18 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130315105509) do
+ActiveRecord::Schema.define(version: 20130315121032) do
 
   create_table "members", force: true do |t|
     t.string   "email"
     t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "team_id"
   end
 
   add_index "members", ["role_id"], name: "index_members_on_role_id"
+  add_index "members", ["team_id"], name: "index_members_on_team_id"
 
   create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

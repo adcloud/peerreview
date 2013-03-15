@@ -11,3 +11,8 @@ m3 = Member.create({ email: 'lukas.wehn@adcloud.com', role_id: role_po.id })
 m4 = Member.create({ email: 'tim.schindler@adcloud.com', role_id: role_dev.id })
 m5 = Member.create({ email: 'jan.pieper@adcloud.com', role_id: role_dev.id })
 m6 = Member.create({ email: 'tj.gabbour@adcloud.com', role_id: role_dev.id })
+
+Team.destroy_all()
+t = Team.new( { name: 'A-Team'} )
+t.members << [m1, m2, m3, m4 ]
+t.save
