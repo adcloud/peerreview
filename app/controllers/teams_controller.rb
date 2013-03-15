@@ -40,10 +40,25 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1
   def update
     
+    #add new members
     new_member_id = params[:team][:member][:id]
     if new_member_id != ''
       m = Member.find(new_member_id)
       @team.members << m
+    end
+
+    #delete not destroy
+    members_attributes = params[:team][:members_attributes]
+    members_attributes.each do |key, value|
+      if value['_destroy'] == '1'
+        to_delete = value['id']
+        @team.members.delete(to_delete)
+      end
+    end
+    members_attributes.delete_if do |key, value|
+      if value['_destroy'] == '1'
+        true
+      end
     end
 
     if @team.update(team_params)
