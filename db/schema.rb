@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130316080457) do
+ActiveRecord::Schema.define(version: 20130316083911) do
 
   create_table "answers", force: true do |t|
     t.string   "text"
@@ -20,11 +20,13 @@ ActiveRecord::Schema.define(version: 20130316080457) do
     t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "review_id"
   end
 
   add_index "answers", ["for_member_id"], name: "index_answers_on_for_member_id"
   add_index "answers", ["from_member_id"], name: "index_answers_on_from_member_id"
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["review_id"], name: "index_answers_on_review_id"
 
   create_table "members", force: true do |t|
     t.string   "email"
@@ -48,6 +50,14 @@ ActiveRecord::Schema.define(version: 20130316080457) do
 
   add_index "questions", ["forrole_id"], name: "index_questions_on_forrole_id"
   add_index "questions", ["fromrole_id"], name: "index_questions_on_fromrole_id"
+
+  create_table "reviews", force: true do |t|
+    t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["member_id"], name: "index_reviews_on_member_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"
