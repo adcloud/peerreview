@@ -22,16 +22,15 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     @review = Review.new(review_params)
-
     if @review.save
-      redirect_to @review, notice: 'Review was successfully created.'
+      redirect_to controller: 'reviews', action: 'fill_out_review', id: @review.id
     else
       render action: 'new'
     end
   end
 
   def fill_out_review
-    
+    @review = Review.find(params[:id])
   end
 
   # PATCH/PUT /reviews/1
