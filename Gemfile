@@ -38,3 +38,5 @@ gem 'jbuilder', '~> 1.0.1'
 # gem 'debugger'
 
 #gem 'protected_attributes'
+
+gem "twitter-bootstrap-rails"
