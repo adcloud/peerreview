@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @question.text %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @question.section %>
+</p>
+
+<p>
+  <strong>Fromrole:</strong>
+  <%= @question.fromrole %>
+</p>
+
+<p>
+  <strong>Forrole:</strong>
+  <%= @question.forrole %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

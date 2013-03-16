@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130315121032) do
+ActiveRecord::Schema.define(version: 20130316001634) do
 
   create_table "members", force: true do |t|
     t.string   "email"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20130315121032) do
 
   add_index "members", ["role_id"], name: "index_members_on_role_id"
   add_index "members", ["team_id"], name: "index_members_on_team_id"
+
+  create_table "questions", force: true do |t|
+    t.string   "text"
+    t.string   "section"
+    t.integer  "fromrole_id"
+    t.integer  "forrole_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["forrole_id"], name: "index_questions_on_forrole_id"
+  add_index "questions", ["fromrole_id"], name: "index_questions_on_fromrole_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  text: MyString
+  section: MyString
+  fromrole_id: 
+  forrole_id: 
+
+two:
+  text: MyString
+  section: MyString
+  fromrole_id: 
+  forrole_id: 

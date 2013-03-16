@@ -1,4 +1,6 @@
 Peerreview::Application.routes.draw do
+  resources :questions
+
   resources :teams
 
   resources :members
