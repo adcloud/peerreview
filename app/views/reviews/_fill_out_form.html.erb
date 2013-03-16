@@ -11,11 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    Review from <%= @review.member.email %>
-  </div>
+  This is a review from: <%= @review.member.simple_name %> </br>
+  From the team: <%= @review.member.team.name %> </br >
+  Last update at: <%= @review.updated_at %> </br >
+  There are <%= @review.answers.size %> Questions in total.</br ></br ></br >
 
-  <%= @review.answers.size %> Questions:
+  <% ids = Set.new %>
+  <% @review.answers.each { |a| ids << a.for_member_id } %>
+  <% ids = ids.to_a %>
+
+  <% a2 = @review.answers.select {|a| a.for_member_id == ids[1] } %>
+
+<!--
+  <div class="tabbable">
+
+    <ul class="nav nav-tabs">
+      <% ids.each do |id| %>
+        <li> 
+            <%=raw '<a href="#' + id.to_s + '" data-toggle="tab">' %>
+            <%= Member.find(id).simple_name %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+    <div class="tab-content">
+      <% ids.each do |id| %>
+        <%=raw '<div id="' + id.to_s + '" class="tab-pane active">' %>
+          <% a = @review.answers.select {|a| a.for_member_id == id } %>
+          <% a.each do |answer| %>
+            <%= f.fields_for answer do |builder| %>
+            <div class="field">
+              <%= answer.for_member.simple_name %>
+              <%= answer.question %>
+              <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ],{include_blank: true}, {id: 'review_answers_attributes_31_text', name: 'review[answers_attributes][31][text]'} %>
+            </div>
+            <% end -%>
+          <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+-->
+
 
   <%= f.fields_for :answers do |builder| %>
     <div class="field">
@@ -27,7 +64,9 @@
     </div>
   <% end -%>
 
-  <div class="actions">
+
+
+  <div class="btn">
     <%= f.submit %>
   </div>
 <% end %>
