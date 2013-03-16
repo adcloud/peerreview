@@ -18,11 +18,11 @@ t.members << [m1, m2, m3, m4 ]
 t.save
 
 Question.destroy_all()
-Question.create({ section: 'Produktivitaet', text: ' traegt zum Team-Erfolg bei.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
-Question.create({ section: 'Produktivitaet', text: '  arbeitet effizient.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
-Question.create({ section: 'Verstaendnis', text: '   findet sich schnell zurecht und kann Fragen zuverlaessig beantworten.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
-Question.create({ section: 'Qualitaet', text: ' schreibt fehlerfreien und nachvollziehbaren Code.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
-Question.create({ section: 'Qualitaet', text: 's Code reviewe ich gerne.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
+q1 = Question.create({ section: 'Produktivitaet', text: ' traegt zum Team-Erfolg bei.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
+q2 = Question.create({ section: 'Produktivitaet', text: '  arbeitet effizient.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
+q3 = Question.create({ section: 'Verstaendnis', text: '   findet sich schnell zurecht und kann Fragen zuverlaessig beantworten.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
+q4 = Question.create({ section: 'Qualitaet', text: ' schreibt fehlerfreien und nachvollziehbaren Code.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
+q5 = Question.create({ section: 'Qualitaet', text: 's Code reviewe ich gerne.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 Question.create({ section: 'Qualitaet', text: ' ist ein Boyscout! Er hinterlaesst Legacy-Code sauberer als vorher?', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 Question.create({ section: 'Qualitaet', text: '  schreibt automatisierte Tests falls moeglich.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 Question.create({ section: 'MVP', text: ' s Umsetzung passt zu den fachlichen Anforderungen.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
@@ -43,3 +43,9 @@ Question.create({ section: 'Wissensweitergabe', text: ' ist ein guter Pair-Partn
 Question.create({ section: 'Scrum/Dev-Organisation', text: ' loest Teamkonflikte.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 Question.create({ section: 'Scrum/Dev-Organisation', text: ' verbessert den Scrum Prozess.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 Question.create({ section: 'Scrum/Dev-Organisation', text: ' verbessert die Zusammenarbeit in DEV..', forrole_id: role_dev.id, fromrole_id: role_dev.id});
+
+Answer.destroy_all()
+Answer.create({ text: 'Sehr zutreffend', from_member_id: m1.id, for_member_id: m2.id, question: q1});
+Answer.create({ text: 'Ein wenig', from_member_id: m1.id, for_member_id: m2.id, question: q2});
+Answer.create({ text: 'Eher zutreffend', from_member_id: m1.id, for_member_id: m2.id, question: q3});
+Answer.create({ text: 'Eher nicht zutreffend', from_member_id: m1.id, for_member_id: m2.id, question: q4});

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @answer.text %>
+</p>
+
+<p>
+  <strong>From member:</strong>
+  <%= @answer.from_member.email %>
+</p>
+
+<p>
+  <strong>For member:</strong>
+  <%= @answer.for_member.email %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @answer.question.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>
