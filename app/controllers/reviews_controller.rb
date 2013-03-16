@@ -26,13 +26,13 @@ class ReviewsController < ApplicationController
     role = @review.member.role
     questions = Question.where(fromrole: role)
 
-    #todo
     teamMembers = Member.where(team_id: @review.member.team_id)
-
-    questions.each do |question|
-      #TODO 
-      a = Answer.create({ from_member_id: @review.member.id, for_member_id: @review.member.id, question: question});
-      @review.answers << a
+    teamMembers.each do | member |
+      questions.each do | question |
+        #right question
+        a = Answer.create({ from_member_id: @review.member.id, for_member_id: member.id, question: question});
+        @review.answers << a
+      end
     end
 
     if @review.save
