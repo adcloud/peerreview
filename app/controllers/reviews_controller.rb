@@ -22,6 +22,19 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     @review = Review.new(review_params)
+
+    role = @review.member.role
+    questions = Question.where(fromrole: role)
+
+    #todo
+    teamMembers = Member.where(team_id: @review.member.team_id)
+
+    questions.each do |question|
+      #TODO 
+      a = Answer.create({ from_member_id: @review.member.id, for_member_id: @review.member.id, question: question});
+      @review.answers << a
+    end
+
     if @review.save
       redirect_to controller: 'reviews', action: 'fill_out_review', id: @review.id
     else
@@ -56,6 +69,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:member_id)
+      params.require(:review).permit(:member_id, answers_attributes: [:text, :id])
     end
 end

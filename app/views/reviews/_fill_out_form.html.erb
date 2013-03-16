@@ -1,0 +1,33 @@
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= @review.member.email %>
+  </div>
+
+  <%= @review.answers.size %> Questions:
+
+  <%= f.fields_for :answers do |builder| %>
+    <div class="field">
+
+      <%= builder.text_field :for_member, :disabled => true, :size => 35 %>
+      <%= builder.text_field :question, :disabled => true, :size => 45%>
+      <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], :include_blank => true %>
+
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

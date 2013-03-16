@@ -14,8 +14,10 @@
     <% @reviews.each do |review| %>
     <tr>
       <td><%= review.member.email %></td>
+      <td><%= review.created_at %></td>
       <td><%= link_to 'Show', review %></td>
       <td><%= link_to 'Edit', edit_review_path(review) %></td>
+      <td><%= link_to 'Fill out', controller: :reviews, action: :fill_out_review, id: review.id  %></td>
       <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>

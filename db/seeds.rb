@@ -1,3 +1,4 @@
+# encoding:utf-8
 Role.destroy_all()
 role_dev = Role.create({ name: 'Developer'})
 role_po = Role.create({ name: 'Product Owner'})
@@ -18,7 +19,7 @@ t.members << [m1, m2, m3, m4 ]
 t.save
 
 Question.destroy_all()
-q1 = Question.create({ section: 'Produktivitaet', text: ' traegt zum Team-Erfolg bei.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
+q1 = Question.create({ section: 'Produktivitaet', text: ' trägt zum Team-Erfolg bei.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 q2 = Question.create({ section: 'Produktivitaet', text: '  arbeitet effizient.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 q3 = Question.create({ section: 'Verstaendnis', text: '   findet sich schnell zurecht und kann Fragen zuverlaessig beantworten.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 q4 = Question.create({ section: 'Qualitaet', text: ' schreibt fehlerfreien und nachvollziehbaren Code.', forrole_id: role_dev.id, fromrole_id: role_dev.id});
@@ -45,7 +46,7 @@ Question.create({ section: 'Scrum/Dev-Organisation', text: ' verbessert den Scru
 Question.create({ section: 'Scrum/Dev-Organisation', text: ' verbessert die Zusammenarbeit in DEV..', forrole_id: role_dev.id, fromrole_id: role_dev.id});
 
 Answer.destroy_all()
-Answer.create({ text: 'Sehr zutreffend', from_member_id: m1.id, for_member_id: m2.id, question: q1});
-Answer.create({ text: 'Ein wenig', from_member_id: m1.id, for_member_id: m2.id, question: q2});
-Answer.create({ text: 'Eher zutreffend', from_member_id: m1.id, for_member_id: m2.id, question: q3});
-Answer.create({ text: 'Eher nicht zutreffend', from_member_id: m1.id, for_member_id: m2.id, question: q4});
+
+
+Review.destroy_all()
+

@@ -16,3 +16,5 @@
 /tmp
 db/.DS_Store
 app/views/.DS_Store
+app/views/answers/.DS_Store
+app/views/teams/.DS_Store
