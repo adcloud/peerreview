@@ -7,11 +7,6 @@ class AnswersController < ApplicationController
     @answers = Answer.all
   end
 
-  # GET /answers/1
-  # GET /answers/1.json
-  def show
-  end
-
   # GET /answers/new
   def new
     @answer = Answer.new
