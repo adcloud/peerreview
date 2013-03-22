@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.select :member_id, Member.all.collect {|m| [ m.simple_name + ' - ' + m.role.to_s , m.id ] } %>
+    <%= f.select :member_id, Member.all.collect {|m| [ m.simple_name_role , m.id ] } %>
   </div>
   <div class="actions">
     <%= f.submit %>

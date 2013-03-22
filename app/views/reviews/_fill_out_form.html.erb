@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  This is a review from: <%= @review.member.simple_name %> </br>
+  This is a review from: <%= @review.member.simple_name_role %> </br>
   From the team: <%= @review.member.team.name %> </br >
   Last update at: <%= @review.updated_at %> </br >
   There are <%= @review.answers.size %> Questions in total.</br ></br ></br >
@@ -21,7 +21,7 @@
       <% @sorted_answers.each do |id, answers| %>
         <li> 
             <%=raw '<a href="#' + id.to_s + '" data-toggle="tab">' %>
-            <%= Member.find(id).simple_name %>
+            <%= Member.find(id).simple_name_role %>
           </a>
         </li>
       <% end %>
