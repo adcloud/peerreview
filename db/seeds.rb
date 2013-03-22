@@ -156,3 +156,4 @@ Question.create({ section: 'Scrum/Dev-Organisation', text: '  verbessert die Zus
 
 
 Review.destroy_all()
+Answer.destroy_all()
