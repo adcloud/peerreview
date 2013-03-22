@@ -18,17 +18,22 @@
 
   <div class="tabbable">
     <ul class="nav nav-tabs">
+      <% i = 0 %>
       <% @sorted_answers.each do |id, answers| %>
-        <li> 
+            <% klass = i == 0 ? "active" : "" %>
+            <%=raw '<li class="'+klass+'">' %>
             <%=raw '<a href="#' + id.to_s + '" data-toggle="tab">' %>
             <%= Member.find(id).simple_name_role %>
+            <% i = i + 1 %>
           </a>
         </li>
       <% end %>
     </ul>
     <div class="tab-content">
+      <% i = 0 %>
       <% @sorted_answers.each do |id, answers| %>
-        <%=raw '<div id="' + id.to_s + '" class="tab-pane active">' %>
+        <% klass = i == 0 ? "tab-pane active" : "tab-pane" %>
+        <%=raw '<div id="' + id.to_s + '" class="'+klass+'">' %>
           <%= f.fields_for :answers, answers do |builder| %>
             <div class="field">
               <%= builder.object.for_member.simple_name %>
@@ -37,6 +42,7 @@
             </div>
           <% end %>
         </div> <!-- tab-pane -->
+        <% i = i + 1 %>
       <% end %>
     </div> <!-- tab-content -->
   </div> <!-- tabbable -->
