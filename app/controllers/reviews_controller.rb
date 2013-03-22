@@ -44,6 +44,17 @@ class ReviewsController < ApplicationController
 
   def fill_out_review
     @review = Review.find(params[:id])
+    @sorted_answers = {};
+
+    current_member_id = @review.answers.first.for_member.id
+    @sorted_answers[current_member_id] = [];
+    @review.answers.each do |answer|
+      if current_member_id != answer.for_member.id
+        current_member_id = answer.for_member.id
+        @sorted_answers[current_member_id] = []
+      end
+    @sorted_answers[current_member_id] << answer
+    end
   end
 
   # PATCH/PUT /reviews/1

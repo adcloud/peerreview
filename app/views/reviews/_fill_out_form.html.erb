@@ -16,17 +16,9 @@
   Last update at: <%= @review.updated_at %> </br >
   There are <%= @review.answers.size %> Questions in total.</br ></br ></br >
 
-  <% ids = Set.new %>
-  <% @review.answers.each { |a| ids << a.for_member_id } %>
-  <% ids = ids.to_a %>
-
-  <% a2 = @review.answers.select {|a| a.for_member_id == ids[1] } %>
-
-<!--
   <div class="tabbable">
-
     <ul class="nav nav-tabs">
-      <% ids.each do |id| %>
+      <% @sorted_answers.each do |id, answers| %>
         <li> 
             <%=raw '<a href="#' + id.to_s + '" data-toggle="tab">' %>
             <%= Member.find(id).simple_name %>
@@ -35,35 +27,19 @@
       <% end %>
     </ul>
     <div class="tab-content">
-      <% ids.each do |id| %>
+      <% @sorted_answers.each do |id, answers| %>
         <%=raw '<div id="' + id.to_s + '" class="tab-pane active">' %>
-          <% a = @review.answers.select {|a| a.for_member_id == id } %>
-          <% a.each do |answer| %>
-            <%= f.fields_for answer do |builder| %>
+          <%= f.fields_for :answers, answers do |builder| %>
             <div class="field">
-              <%= answer.for_member.simple_name %>
-              <%= answer.question %>
-              <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ],{include_blank: true}, {id: 'review_answers_attributes_31_text', name: 'review[answers_attributes][31][text]'} %>
+              <%= builder.text_field :for_member, :disabled => true, :size => 35 %>
+              <%= builder.text_field :question, :disabled => true, :size => 45%>
+              <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], :include_blank => true %>
             </div>
-            <% end -%>
           <% end %>
-      </div>
+        </div> <!-- tab-pane -->
       <% end %>
-    </div>
-  </div>
--->
-
-
-  <%= f.fields_for :answers do |builder| %>
-    <div class="field">
-
-      <%= builder.text_field :for_member, :disabled => true, :size => 35 %>
-      <%= builder.text_field :question, :disabled => true, :size => 45%>
-      <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], :include_blank => true %>
-
-    </div>
-  <% end -%>
-
+    </div> <!-- tab-content -->
+  </div> <!-- tabbable -->
 
 
   <div class="btn">
