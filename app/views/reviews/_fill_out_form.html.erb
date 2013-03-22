@@ -31,8 +31,8 @@
         <%=raw '<div id="' + id.to_s + '" class="tab-pane active">' %>
           <%= f.fields_for :answers, answers do |builder| %>
             <div class="field">
-              <%= builder.text_field :for_member, :disabled => true, :size => 35 %>
-              <%= builder.text_field :question, :disabled => true, :size => 45%>
+              <%= builder.object.for_member.simple_name %>
+              <%= builder.object.question %>
               <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], :include_blank => true %>
             </div>
           <% end %>
