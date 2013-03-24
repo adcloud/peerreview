@@ -24,11 +24,6 @@ class TeamsControllerTest < ActionController::TestCase
     assert_redirected_to team_path(assigns(:team))
   end
 
-  test "should show team" do
-    get :show, id: @team
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, id: @team
     assert_response :success

@@ -24,11 +24,6 @@ class AnswersControllerTest < ActionController::TestCase
     assert_redirected_to answer_path(assigns(:answer))
   end
 
-  test "should show answer" do
-    get :show, id: @answer
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, id: @answer
     assert_response :success

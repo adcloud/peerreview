@@ -24,11 +24,6 @@ class RolesControllerTest < ActionController::TestCase
     assert_redirected_to role_path(assigns(:role))
   end
 
-  test "should show role" do
-    get :show, id: @role
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, id: @role
     assert_response :success
