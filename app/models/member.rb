@@ -16,4 +16,8 @@ class Member < ActiveRecord::Base
     simple_name + ' (' +  role.to_s + ')'
   end
 
+  def simple_name_role_team
+    simple_name + ' (' +  role.to_s + ' in ' + team.to_s  + ')'
+  end
+
 end
