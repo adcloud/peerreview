@@ -24,6 +24,7 @@
             <%=raw '<li class="'+klass+'">' %>
             <%=raw '<a href="#' + id.to_s + '" data-toggle="tab">' %>
             <%= Member.find(id).simple_name_role %>
+            <%= self_perception = id == @review.member.id ? '(Self Perception)' : '' %>
             <% i = i + 1 %>
           </a>
         </li>
