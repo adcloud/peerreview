@@ -11,11 +11,10 @@ class TeamsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:teams)
   end
 
-# cowardly commenting out questions
-#  test "should get new" do
-#    get :new
-#    assert_response :success
-#  end
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
 
   test "should create team" do
     assert_difference('Team.count') do
