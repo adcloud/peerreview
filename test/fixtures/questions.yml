@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   text: MyString
   section: MyString
-  fromrole_id: 
-  forrole_id: 
+  fromrole_id: 1
+  forrole_id: 1
 
 two:
+  id: 2
   text: MyString
   section: MyString
-  fromrole_id: 
-  forrole_id: 
+  fromrole_id: 1
+  forrole_id: 1

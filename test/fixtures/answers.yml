@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  text: MyString
-  from_member_id: 
-  for_member_id: 
-  question_id: 
+  text: AnswerOne
+  from_member_id: 1
+  for_member_id: 2
+  question_id: 1
 
 two:
-  text: MyString
-  from_member_id: 
-  for_member_id: 
-  question_id: 
+  text: AnswerOne
+  from_member_id: 1
+  for_member_id: 2
+  question_id: 1
