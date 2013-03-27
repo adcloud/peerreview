@@ -1,9 +1,9 @@
 == README
-
 * rake db:migrate
 * rake db:seed
 * rails server
 
-* rake db:test:load #Recreate the test database from the current schema.rb
-* rake:test
+== Test
+* Run the tests: rake test
 * rails c test
+* rake db:test:load #Recreate the test database from the current schema.rb
