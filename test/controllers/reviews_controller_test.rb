@@ -30,10 +30,10 @@ class ReviewsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-#  test "should get edit" do
-#    get :edit, id: @review
-#    assert_response :success
-# =>   end
+  test "should get edit" do
+    get :edit, id: @review
+    assert_response :success
+  end
 
   test "should update review" do
     patch :update, id: @review, review: { member_id: @review.member_id }
