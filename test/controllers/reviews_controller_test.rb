@@ -11,19 +11,19 @@ class ReviewsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:reviews)
   end
 
-#  test "should get new" do
-#    get :new
-#    assert_response :success
-#  end
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
 
-# cowardly commenting out questions
-#  test "should create review" do
-#    assert_difference('Review.count') do
-#      post :create, review: { member_id: @review.member_id }
-#    end
-#
-#    assert_redirected_to review_path(assigns(:review))
-#  end
+  test "should create review" do
+    assert_difference('Review.count') do
+      post :create, review: { member_id: @review.member_id }
+    end
+
+    assert_response :redirect
+    assert_match /.*\/review\/fill_out_review.*/, @response.redirect_url
+  end
 
   test "should show review" do
     get :show, id: @review
