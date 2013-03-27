@@ -49,3 +49,7 @@ gem 'jbuilder', '~> 1.0.1'
 #gem 'protected_attributes'
 
 gem "twitter-bootstrap-rails"
+
+gem 'omniauth-openid'
+gem 'ruby-openid-apps-discovery'
+
