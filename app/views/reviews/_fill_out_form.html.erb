@@ -32,9 +32,11 @@
     </ul>
     <div class="tab-content">
       <% i = 0 %>
-      <% @sorted_answers.each do |id, answers| %>
+      <% @sorted_answers.each do |id, sections| %>
         <% klass = i == 0 ? "tab-pane active" : "tab-pane" %>
         <%=raw '<div id="' + id.to_s + '" class="'+klass+'">' %>
+        <% sections.each do |section, answers| %>
+          <div class="section-title"><%= section %></div>
           <%= f.fields_for :answers, answers do |builder| %>
             <div class="field">
               <%= builder.object.for_member.simple_name %>
@@ -42,6 +44,7 @@
               <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], :include_blank => true %>
             </div>
           <% end %>
+        <% end %>
         </div> <!-- tab-pane -->
         <% i = i + 1 %>
       <% end %>
