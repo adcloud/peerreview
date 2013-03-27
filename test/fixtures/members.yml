@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  email: MyString
-  role_id: 
+  email: MemberOne
+  role_id: 1
 
 two:
-  email: MyString
-  role_id: 
+  email: MemberTwo
+  role_id: 2
