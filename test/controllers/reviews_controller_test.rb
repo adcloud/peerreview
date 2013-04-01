@@ -37,7 +37,7 @@ class ReviewsControllerTest < ActionController::TestCase
 
   test "should update review" do
     patch :update, id: @review, review: { member_id: @review.member_id }
-    assert_redirected_to review_path(assigns(:review))
+    assert_match /.*\/review\/fill_out_review.*/, @response.redirect_url
   end
 
   test "should destroy review" do
