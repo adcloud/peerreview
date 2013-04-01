@@ -68,7 +68,9 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   def update
     if @review.update(review_params)
-      redirect_to @review, notice: 'Review was successfully updated.'
+      #TODO notice doesn't work
+      #redirect_to controller: 'reviews', action: 'fill_out_review', notice: 'Review was successfully updated.', id: @review.id
+      redirect_to controller: 'reviews', action: 'fill_out_review', id: @review.id
     else
       render action: 'edit'
     end
@@ -88,6 +90,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:member_id, answers_attributes: [:text, :id])
+      params.require(:review).permit(:member_id, :finished, answers_attributes: [:text, :id])
     end
 end
