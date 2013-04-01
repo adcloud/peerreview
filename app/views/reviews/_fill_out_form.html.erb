@@ -41,7 +41,7 @@
             <div class="field">
               <%= builder.object.for_member.simple_name %>
               <%= builder.object.question %>
-              <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], :include_blank => true %>
+              <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], include_blank: true %>
             </div>
           <% end %>
         <% end %>
@@ -53,6 +53,8 @@
 
 
   <div class="btn">
-    <%= f.submit %>
+    <%= f.submit disabled: @review.finished %>
   </div>
+  Finish: <%= f.check_box :finished, disabled: @review.finished %>
+
 <% end %>
