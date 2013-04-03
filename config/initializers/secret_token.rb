@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Peerreview::Application.config.secret_key_base = '6f849f2255ab725bed364a7615b5dba3a85a9a35d11b3f9cc8d4110ad9cb4371d0a7215c47487638ff7e594c782c7e437cf4c6634496d813cd8c120f2afad103'
+Peerreview::Application.config.secret_key_base = ENV['SECRET_TOKEN']

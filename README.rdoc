@@ -1,4 +1,5 @@
 == README
+* set a secret token export SECRET_TOKEN="<secret>"
 * rake db:migrate
 * rake db:seed
 * rails server
