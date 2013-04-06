@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
-    @members = Member.where('email = ?', session[:user_id])
+    @members = session[:user_admin] ? Member.all : Member.where('email = ?', session[:user_id])
   end
 
   # GET /reviews/1/edit

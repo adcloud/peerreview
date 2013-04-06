@@ -1,4 +1,9 @@
 # encoding:utf-8
+
+User.destroy_all()
+User.create({ email: 'matthias.luebken@adcloud.com', admin: true})
+User.create({ email: 'anna.loeww@adcloud.com', admin: true})
+
 Role.destroy_all()
 role_dev = Role.create({ name: 'Developer'})
 role_po = Role.create({ name: 'Product Owner'})

@@ -10,6 +10,8 @@ class WelcomeController < ApplicationController
     email = env['omniauth.auth']['info']['email']
     p 'Found ' + email
     session[:user_id] = email
+    user = User.where('email = ?', session[:user_id]).first
+    session[:user_admin] = !user.nil? && user.admin
   end
 
 end
