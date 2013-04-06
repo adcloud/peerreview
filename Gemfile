@@ -50,6 +50,4 @@ gem 'jbuilder', '~> 1.0.1'
 
 gem "twitter-bootstrap-rails"
 
-gem 'omniauth-openid'
-gem 'ruby-openid-apps-discovery'
-
+gem 'omniauth-google-apps'
