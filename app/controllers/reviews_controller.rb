@@ -6,18 +6,10 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
-  # GET /reviews/1
-  def show
-  end
-
   # GET /reviews/new
   def new
     @review = Review.new
     @members = session[:user_admin] ? Member.all : Member.where('email = ?', session[:user_id])
-  end
-
-  # GET /reviews/1/edit
-  def edit
   end
 
   # POST /reviews

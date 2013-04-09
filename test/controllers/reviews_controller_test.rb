@@ -25,16 +25,6 @@ class ReviewsControllerTest < ActionController::TestCase
     assert_match /.*\/review\/fill_out_review.*/, @response.redirect_url
   end
 
-  test "should show review" do
-    get :show, id: @review
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @review
-    assert_response :success
-  end
-
   test "should update review" do
     patch :update, id: @review, review: { member_id: @review.member_id }
     assert_match /.*\/review\/fill_out_review.*/, @response.redirect_url
