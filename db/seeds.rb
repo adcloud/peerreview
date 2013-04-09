@@ -2,7 +2,7 @@
 
 User.destroy_all()
 User.create({ email: 'matthias.luebken@adcloud.com', admin: true})
-User.create({ email: 'anna.loeww@adcloud.com', admin: true})
+User.create({ email: 'anna.loew@adcloud.com', admin: true})
 
 Role.destroy_all()
 role_dev = Role.create({ name: 'Developer'})
