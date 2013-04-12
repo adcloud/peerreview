@@ -8,7 +8,6 @@ class AnswersControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:answers)
   end
 
   test "should get new" do
