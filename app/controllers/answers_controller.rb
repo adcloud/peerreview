@@ -1,10 +1,14 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:edit, :update, :destroy]
 
   # GET /answers
-  # GET /answers.json
   def index
-    @answers = Answer.all
+    @members = Member.where('email = ?', session[:user_id])
+  end
+
+  # GET /list
+  def show
+    @answers = Answer.where('for_member_id = ?', params[:member_id])
   end
 
   # GET /answers/new
@@ -17,7 +21,6 @@ class AnswersController < ApplicationController
   end
 
   # POST /answers
-  # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
 
@@ -33,7 +36,6 @@ class AnswersController < ApplicationController
   end
 
   # PATCH/PUT /answers/1
-  # PATCH/PUT /answers/1.json
   def update
     respond_to do |format|
       if @answer.update(answer_params)

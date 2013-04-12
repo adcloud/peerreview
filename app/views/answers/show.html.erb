@@ -1,0 +1,31 @@
+<h1>Answers for
+<%= @answers.first.for_member.email %>
+</h1>
+
+<h2>TODO: better grouping</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answers.each do |answer| %>
+    <tr>
+      <td><%= answer.for_member.simple_name %></td>
+      <td><%= answer.question.text %></td>
+      <td><%= answer.text %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />

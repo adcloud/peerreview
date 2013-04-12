@@ -1,32 +1,8 @@
-<h1>Listing answers</h1>
+<h3>Answers</h3>
+</br>
+<%= form_tag("/answers/show", :method => "get") do %>
+  <%= label_tag(:a, "Answers for:") %>
+  <%= select_tag :member_id, options_for_select( @members.collect {|m| [ m.simple_name_role_team , m.id ]  } ) %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Text</th>
-      <th>From member</th>
-      <th>For member</th>
-      <th>Question</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @answers.each do |answer| %>
-    <tr>
-      <td><%= answer.text %></td>
-      <td><%= answer.from_member.email %></td>
-      <td><%= answer.for_member.email %></td>
-      <td><%= answer.question.text %></td>
-      <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
-      <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br />
-
-<%= link_to 'New Answer', new_answer_path %>
+  <%= submit_tag("Search") %>
+<% end %>
