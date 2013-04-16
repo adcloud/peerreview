@@ -1,56 +1,33 @@
 # encoding:utf-8
 
 User.destroy_all()
-User.create({ email: 'matthias.luebken@adcloud.com', admin: true})
-User.create({ email: 'anna.loew@adcloud.com', admin: true})
+User.create({ email: 'name.surname@domain.com', admin: true})
 
 Role.destroy_all()
 role_dev = Role.create({ name: 'Developer'})
 role_po = Role.create({ name: 'Product Owner'})
 role_manager = Role.create({ name: 'Manager'})
-role_qui = Role.create({ name: 'QuiRe'})
 
 
 Member.destroy_all()
-matthias_1 = Member.create({ email: 'matthias.luebken@adcloud.com', role_id: role_manager.id })
-matthias_2 = Member.create({ email: 'matthias.luebken@adcloud.com', role_id: role_manager.id })
-matthias_3 = Member.create({ email: 'matthias.luebken@adcloud.com', role_id: role_manager.id })
-lukas_po = Member.create({ email: 'lukas.wehn@adcloud.com', role_id: role_po.id })
-tim_dev = Member.create({ email: 'tim.schindler@adcloud.com', role_id: role_dev.id })
-jan_dev = Member.create({ email: 'jan.pieper@adcloud.com', role_id: role_dev.id })
-tj_dev = Member.create({ email: 'tj.gabbour@adcloud.com', role_id: role_dev.id })
-lars_dev = Member.create({ email: 'lars.wolff@adcloud.com', role_id: role_dev.id })
-martin_dev = Member.create({ email: 'martin.otten@adcloud.com', role_id: role_dev.id })
-frank_dev = Member.create({ email: 'frank.muenchmeyer@adcloud.com', role_id: role_dev.id })
-alfonz_dev = Member.create({ email: 'alfonz.borsos@adcloud.com', role_id: role_dev.id })
-tim_devops = Member.create({ email: 'tim.buchwaldt@adcloud.com', role_id: role_dev.id })
-#m13 = Member.create({ email: 'sven.gebhardt@adcloud.com', role_id: role_dev.id })
-ralph_dev = Member.create({ email: 'ralph.poellath@adcloud.com', role_id: role_dev.id })
-dirk_dev = Member.create({ email: 'dirk.breuer@adcloud.com', role_id: role_dev.id })
-sebastian_dev = Member.create({ email: 'sebastian.cohnen@adcloud.com', role_id: role_dev.id })
-stephan_dev = Member.create({ email: 'stephan.zeissler@adcloud.com', role_id: role_dev.id })
-#m18 = Member.create({ email: 'gabriel.pickard@adcloud.com', role_id: role_dev.id })
-ross_dev = Member.create({ email: 'ross.crawford@adcloud.net>', role_id: role_dev.id })
-#m20 = Member.create({ email: 'sascha.fassmann@adcloud.com', role_id: role_po.id })
-verena_po = Member.create({ email: 'verena.wuerbel@adcloud.com', role_id: role_po.id })
-#m22 = Member.create({ email: 'sebastian.lautwein@adcloud.com', role_id: role_po.id })
-alwin_dev = Member.create({ email: 'alwin.karabiowski@adcloud.com', role_id: role_dev.id })
-waldemar_dev = Member.create({ email: 'waldemar.schwan@adcloud.com', role_id: role_dev.id })
-frank_po = Member.create({ email: 'frank.muenchmeyer@adcloud.com', role_id: role_po.id })
+manager_1 = Member.create({ email: 'name.surname@domain.com', role_id: role_manager.id })
+manager_2 = Member.create({ email: 'name.surname@domain.com', role_id: role_manager.id })
+po_1 = Member.create({ email: 'name.surname@domain.com', role_id: role_po.id })
+po_2 = Member.create({ email: 'name.surname@domain.com', role_id: role_po.id })
+dev_1 = Member.create({ email: 'name.surname@domain.com', role_id: role_dev.id })
+dev_2 = Member.create({ email: 'name.surname@domain.com', role_id: role_dev.id })
+dev_3 = Member.create({ email: 'name.surname@domain.com', role_id: role_dev.id })
+dev_4 = Member.create({ email: 'name.surname@domain.com', role_id: role_dev.id })
+dev_5 = Member.create({ email: 'name.surname@domain.com', role_id: role_dev.id })
+dev_6 = Member.create({ email: 'name.surname@domain.com', role_id: role_dev.id })
 
 Team.destroy_all()
-t1 = Team.new( { name: 'Connect'} )
-t1.members << [matthias_1, alwin_dev, tim_dev, ralph_dev, dirk_dev, jan_dev, lukas_po]
+t1 = Team.new( { name: 'A Team'} )
+t1.members << [manager_1, po_1, dev_1, dev_2, dev_3]
 t1.save 
-t2 = Team.new( { name: 'Better Results'} )
-t2.members << [matthias_2, stephan_dev, sebastian_dev, tj_dev, waldemar_dev, frank_po, frank_dev  ]
+t2 = Team.new( { name: 'B Team'} )
+t1.members << [manager_2, po_2, dev_4, dev_5, dev_6]
 t2.save
-t3 = Team.new( { name: 'Product Experience'} )
-t3.members << [matthias_3, alfonz_dev, lars_dev, verena_po, martin_dev, ross_dev ]
-t3.save 
-t4 = Team.new( { name: 'HELP'} )
-t3.members << [matthias_3, tim_devops ]
-t3.save 
 
 
 Question.destroy_all()
