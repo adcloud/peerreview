@@ -39,9 +39,13 @@
           <div class="section-title"><%= section %></div>
           <%= f.fields_for :answers, answers do |builder| %>
             <div class="field">
-              <%= builder.object.for_member.simple_name %>
-              <%= builder.object.question %>
-              <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], include_blank: true %>
+              <% if builder.object.question.text != '<freetext>' %>
+                <%= builder.object.for_member.simple_name %>
+                <%= builder.object.question %>
+                <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], include_blank: true %>
+              <% else %>              
+                <%= builder.text_area :text, :rows => "5", :style => "width:600px;"%>
+              <% end %>
             </div>
           <% end %>
         <% end %>
