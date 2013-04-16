@@ -57,7 +57,7 @@
 
 
   <div class="btn">
-    <%= f.submit disabled: @review.finished %>
+    <%= f.submit "Save review", disabled: @review.finished %>
   </div>
   Finish: <%= f.check_box :finished, disabled: @review.finished %>
 
