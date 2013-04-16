@@ -56,9 +56,12 @@
   </div> <!-- tabbable -->
 
 
-  <div class="btn">
-    <%= f.submit "Save review", disabled: @review.finished %>
+  <div class='savereview'>
+    <div class="btn">
+      <%= f.submit "Save Review", disabled: @review.finished %>
+    </div>
+    and submit: <%= f.check_box :finished, disabled: @review.finished %>
   </div>
-  Finish: <%= f.check_box :finished, disabled: @review.finished %>
+
 
 <% end %>
