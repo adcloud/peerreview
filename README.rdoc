@@ -1,10 +1,14 @@
 == README
+
+PeerReview is a web application that provides an easy and fast way to create online peer reviews in teams with different membebers with different roles.
+
+=== Setting up development
 * set a secret token export SECRET_TOKEN="<secret>"
 * rake db:migrate
 * rake db:seed
 * rails server
 
-== Test
+=== Testing
 * Run the tests: rake test
 * rails c test
 * rake db:test:load #Recreate the test database from the current schema.rb
