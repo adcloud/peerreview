@@ -10,11 +10,6 @@ class AnswersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create answer" do
     assert_difference('Answer.count') do
       post :create, answer: { for_member_id: @answer.for_member_id, from_member_id: @answer.from_member_id, question_id: @answer.question_id, text: @answer.text }
