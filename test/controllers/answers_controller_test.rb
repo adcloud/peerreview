@@ -10,29 +10,4 @@ class AnswersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create answer" do
-    assert_difference('Answer.count') do
-      post :create, answer: { for_member_id: @answer.for_member_id, from_member_id: @answer.from_member_id, question_id: @answer.question_id, text: @answer.text }
-    end
-
-    assert_redirected_to answer_path(assigns(:answer))
-  end
-
-  test "should get edit" do
-    get :edit, id: @answer
-    assert_response :success
-  end
-
-  test "should update answer" do
-    patch :update, id: @answer, answer: { for_member_id: @answer.for_member_id, from_member_id: @answer.from_member_id, question_id: @answer.question_id, text: @answer.text }
-    assert_redirected_to answer_path(assigns(:answer))
-  end
-
-  test "should destroy answer" do
-    assert_difference('Answer.count', -1) do
-      delete :destroy, id: @answer
-    end
-
-    assert_redirected_to answers_path
-  end
 end
