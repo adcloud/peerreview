@@ -42,7 +42,7 @@
               <% if builder.object.question.text != '<freetext>' %>
                 <%= builder.object.for_member.simple_name %>
                 <%= builder.object.question %>
-                <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], include_blank: true %>
+                <%= builder.select :text, ['Sehr zutreffend', 'Eher zutreffend', 'Ein wenig zutreffend', 'Eher nicht zutreffend' ], {include_blank: true}, { disabled: @review.finished } %>
               <% else %>              
                 <%= builder.text_area :text, :rows => "5", :style => "width:600px;"%>
               <% end %>
