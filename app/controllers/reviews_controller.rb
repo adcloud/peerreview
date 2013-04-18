@@ -43,6 +43,12 @@ class ReviewsController < ApplicationController
 
   def fill_out_review
     @review = Review.find(params[:id])
+
+    @allowed_members = session[:user_admin] ? Member.all : Member.where('email = ?', session[:user_id])
+    if !@allowed_members.include?(@review.member) 
+      redirect_to :back 
+    end
+
     @sorted_answers = {};
     current_member_id = @review.answers.first.for_member.id
     @sorted_answers[current_member_id] = {};
