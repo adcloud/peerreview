@@ -1,6 +1,7 @@
 language: ruby
 rvm:
   - 1.9.3
-before_install:
-	- rake db:migrate
-	- rake db:test:prepare
+env:
+  - SECRET_TOKEN=travis_secret
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate test
