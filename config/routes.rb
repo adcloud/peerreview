@@ -8,8 +8,6 @@ Peerreview::Application.routes.draw do
 
   resources :teams
 
-  resources :members
-
   resources :roles
 
   resource :review do
