@@ -15,4 +15,4 @@ Testing
 * Run the tests: rake test
 * rails c test
 * rake db:test:load #Recreate the test database from the current schema.rb
-* Travis Tests !(https://api.travis-ci.org/adcloud/peerreview.png)
+* Travis Tests ![](https://api.travis-ci.org/adcloud/peerreview.png)
