@@ -8,8 +8,6 @@ Peerreview::Application.routes.draw do
 
   resources :teams
 
-  resources :roles
-
   resource :review do
     get 'fill_out_review', :on => :collection
   end
