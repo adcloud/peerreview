@@ -71,7 +71,8 @@ class ReviewsController < ApplicationController
       #redirect_to controller: 'reviews', action: 'fill_out_review', notice: 'Review was successfully updated.', id: @review.id
       redirect_to controller: 'reviews', action: 'fill_out_review', id: @review.id
     else
-      render action: 'edit'
+      #TODO answers get lost in this case!!!
+      redirect_to controller: 'reviews', action: 'fill_out_review', id: @review.id
     end
   end
 
