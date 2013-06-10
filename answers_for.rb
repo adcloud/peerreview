@@ -26,15 +26,15 @@ answers.each do |a|
 end
 
 
-puts 'Results for ' + name 
-puts '========'
+puts 'Results for ' + name + ';;;;'
+#puts 'SECTION; NAME; QUESTION; Sehr zutreffend; Eher zutreffend; Ein wenig zutreffend; Eher nicht zutreffend; Nicht beantwortet'
 
 results.keys.sort.each do |section|
-  puts section + ":"
   results[section].keys.sort.each do |question|
-    print " " + name + question + ": "
+    print section + "; " + name + "; "+ question + "; "
     results[section][question].keys.each do |answer|
-      print answer.to_s + ":" + results[section][question][answer].to_s + " | "
+      #print answer.to_s + ":" + results[section][question][answer].to_s + " ; "
+      print answer.to_s + ":" + results[section][question][answer].to_s + " ; "
     end
     puts ""
   end
