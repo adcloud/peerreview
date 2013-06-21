@@ -16,23 +16,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
 
-    role = @review.member.role
-    teamMembers = Member.where(team_id: @review.member.team_id)
-    teamMembers.each do | member |
-      questions = Question.where(fromrole: role, forrole: member.role)
-      questions.each do | question |
-        a = Answer.create({ from_member_id: @review.member.id, for_member_id: member.id, question: question});
-        @review.answers << a
-      end
-    end
-    # self perception
-    questions = Question.where(forrole: @review.member.role)
-    questions.each do | question |
-      #right question
-      a = Answer.create({ from_member_id: @review.member.id, for_member_id: @review.member.id, question: question});
-      @review.answers << a
-    end
-
+    @review.answers << ReviewCreationService.new(@review).call
 
     if @review.save
       redirect_to controller: 'reviews', action: 'fill_out_review', id: @review.id
